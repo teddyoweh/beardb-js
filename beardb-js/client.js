@@ -1,14 +1,16 @@
 const ssl = require('ssl');
 const request = require('request');
 const json = require('json');
+const axios = require('axios');
+const http = require('http');
 
 class Client {
   constructor(host, port, email, secret) {
     this.configData = {};
     this._config(host, port, email, secret);
     this._headers = {'Content-Type': 'application/json'};
-    this.host = '';
-    this.port = '';
+    this.host = host;
+    this.port = port;
   }
 
   _ishttps(host, port) {
@@ -21,8 +23,28 @@ class Client {
       return false;
     }
   }
+  sendPostRequest(endpoint, body, headers) {
+   
+    const options = {
+        method: 'POST',
+        url: endpoint,
+        headers: headers,
+        body: body
+    };
+    fetch('http://'+endpoint,{
+      method: 'POST',
+      body: body
 
-  static _config(host, port, email, secret) {
+    })
+     .then(response => {
+      console.log(response)
+        return response.body;
+      })
+   
+    }
+ 
+
+   _config(host, port, email, secret) {
     this.configData = {};
     this.host = host;
     this.port = port;
@@ -31,8 +53,8 @@ class Client {
     this.routes;
   }
 
-  static _merge(...args) {
-    const merged = this.routes;
+   _merge(...args) {
+    const merged = this.configData;
     for (const dictionary of args) {
       for (const key in dictionary) {
         merged[key] = dictionary[key];
@@ -45,19 +67,19 @@ class Client {
     return this.host + ':' + this.port;
   }
 
-  get headers() {
-    return this.headers;
+  headers() {
+    return this._headers;
   }
 
-  static _grab(data, url) {
-    const response = request.post(this.routes[url], {
-      data: data,
-      headers: this.headers,
-    });
-    return {
-      status: response.status_code,
-      data: response.json(),
-    };
+   _grab(data, url) {
+ 
+    const header = this.headers()
+    
+    
+ 
+    console.log(data)
+   this.sendPostRequest(this.routes[url],data,header)
+   
   }
 
   get routes() {
@@ -92,6 +114,7 @@ class Client {
       password: password,
       fullname: fullname,
     });
+ 
     return this._grab(body, 'newuser');
   }
 
@@ -161,3 +184,7 @@ class Client {
   }
 }
 
+
+module.exports = {
+  Client: Client,
+};

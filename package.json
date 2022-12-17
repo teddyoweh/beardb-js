@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/teddyoweh/beardb-js#readme",
   "dependencies": {
+    "axios": "^1.2.1",
     "json": "^11.0.0",
     "request": "^2.88.2",
     "ssl": "^1.0.0"
