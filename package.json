@@ -1,0 +1,31 @@
+{
+  "name": "beardb-js",
+  "version": "1.0.0",
+  "description": "Nodejs Client Library for Beardb Database Microservice System",
+  "main": "beardb.js",
+  "scripts": {
+    "client": "node beardb-js/client.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teddyoweh/beardb-js.git"
+  },
+  "keywords": [
+    "beardb",
+    "api",
+    "microservice",
+    "database",
+    "beardb-client"
+  ],
+  "author": "Teddy Oweh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teddyoweh/beardb-js/issues"
+  },
+  "homepage": "https://github.com/teddyoweh/beardb-js#readme",
+  "dependencies": {
+    "json": "^11.0.0",
+    "request": "^2.88.2",
+    "ssl": "^1.0.0"
+  }
+}

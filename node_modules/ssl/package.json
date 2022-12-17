@@ -1,0 +1,35 @@
+{
+  "name": "ssl",
+  "version": "1.0.0",
+  "description": "Verification of SSL certificates",
+  "main": "ssl.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "homepage": "https://github.com/onmodulus/ssl.git",
+  "bugs": "https://github.com/onmodulus/ssl/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onmodulus/ssl.git"
+  },
+  "keywords": [
+    "ssl",
+    "tsl",
+    "openssl",
+    "pem",
+    "crt",
+    "certificate",
+    "verification",
+    "passphrase"
+  ],
+  "author": "Modulus <feedback@modulus.io>",
+  "contributors": [
+    "Erin Thompson <erin@modulus.io>",
+    "Matt Hernandez <matt@modulus.io>"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "jshint": "~2.1.4",
+    "jasmine-node": "~1.11.0"
+  }
+}
